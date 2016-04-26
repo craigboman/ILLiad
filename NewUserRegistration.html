@@ -1,0 +1,235 @@
+<html>
+<head>
+<title>ILLiad - New User Registration</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
+<![endif]-->
+</head>
+<body id="type-a">
+<div id="wrap">
+  <!--<div id="header"> <span id="site-name">ILLiad</span>-->
+	<#INCLUDE filename="include_header.html">
+    <div id="status"><#STATUS></div>
+  <!--</div>-->
+  <div id="content-wrap">
+        <#INCLUDE filename="include_menu.html">
+    <div id="content">
+                <form action="illiad.dll" method="post" name="Registration" class="f-wrap-request">
+                        <input type="hidden" name="ILLiadForm" value="Registration">
+                        <input type="hidden" name="NotifyGroup" value="E-Mail"/>
+                        <!--<input type="hidden" name="DeliveryGroup" value="Hold for Pickup"/>-->
+                        <input type="hidden" name="NVTGC" value="ILL"/>
+                        <!--<input type="hidden" name="LoanDeliveryGroup" value="Hold at Roesch library"/> -->
+                        <input type="hidden" name="WebDeliveryGroup" value="Yes"/>
+
+                                <div class="req"><b>*</b> Indicates required field</div>
+                                <fieldset>
+                                        <h3>New User Registration for ILLiad</h3>
+                                        <label for="FirstName">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORFirstName">"><b>First Name</b></span>
+                                                </span>
+                                                <input id="FirstName" name="FirstName" type="text" size="40" class="f-name" tabindex="2" value="<#PARAM name="FirstName">"><br />
+                                        </label>
+
+                                        <label for="LastName">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORLastName">"><b>Last Name</b></span>
+                                                </span>
+                                                <input id="LastName" name="LastName" type="text" size="40" class="f-name" tabindex="2" value="<#PARAM name="LastName">"><br />
+                                        </label>
+
+                                        <label for="EMailAddress">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERROREMailAddress">"><b>E-Mail Address</b></span>
+                                                </span>
+                                                <input id="EMailAddress" name="EMailAddress" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="EMailAddress">"><br />
+                                        </label>
+
+                                        <label for="Phone">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORPhone">"><b>Daytime Phone</b></span>
+                                                </span>
+                                                <input id="Phone" name="Phone" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="Phone">"><br />
+                                        </label>
+
+                                        <label for="DeliveryGroup">
+						<span class="field">
+							<span class="req">*</span>
+							<span class="<#ERROR name="ERRORDeliveryGroup">"><b>Preferred Article Delivery Method</b></span>
+						</span>
+						<select id="DeliveryGroup" name="DeliveryGroup" size="1" tabindex="4">
+							<!--<option selected><#PARAM name="DeliveryGroup"></option>-->
+							<option value="Hold for Pickup" selected>Hold at Roesch library</option>
+							<option value="Hold for Pickup" >Hold at Zimmerman law library</option>
+                			<option value="Mail to Address" > (Faculty Only) Deliver to dept. admin. office</option>
+						</select><br />
+					</label>
+
+					<label for="LoanDeliveryGroup">
+						<span class="field">
+							<span class="req">*</span>
+							<span class="<#ERROR name="ERRORLoanDeliveryGroup">"><b>Preferred Book Delivery Method</b></span>
+						</span>
+						<select id="DeliveryGroup" name="LoanDeliveryGroup" size="1" class="f-name" tabindex="4">
+							<!--<option selected><#PARAM name="LoanDeliveryGroup"></option>-->
+							<option value="Hold for Pickup"selected>Hold at Roesch library</option>
+							<option value="Hold for Pickup">Hold at Zimmerman law library</option>
+                			<option value="Mail to Address">(Faculty Only) Deliver to dept. admin. office</option>
+						</select><br />
+					</label>
+
+                                        <!--<label for="WebDeliveryGroup">
+                                                <span class="field">
+      								<span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORWebDeliveryGroup">"><b>Preferred Electronic Delivery if Possible (PDF file via web)</b></span>
+                                                </span>
+                                                <select id="WebDeliveryGroup" name="WebDeliveryGroup" size="1" class="f-name" tabindex="4">
+                                                        <option selected><#PARAM name="WebDeliveryGroup"></option>-->
+                                                        <!--<option>Yes</option>-->
+                                        			 <!--<option>No</option>-->
+                                                <!--</select><br />
+                                        </label>-->
+
+                                        <label for="Address">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORAddress">"><b>Building and Room number</b></span><br />
+                                                        <span class="note">Articles will only be mailed to UD campus addresses</span>
+                                                </span>
+                                                <input id="Address" name="Address" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="Address">"><br />
+                                        </label>
+
+
+                                        <label for="Zip">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORZip">"><b>Campus +4 Zip</b></span>
+                                                </span>
+                                                <input id="Zip" name="Zip" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="Zip">"><br />
+                                        </label>
+
+                                        <label for="StatusGroup">
+                                                <span class="field">
+								 <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORStatus">"><b>Status</b></span>
+                                                </span>
+                                                <select id="StatusGroup" name="StatusGroup" size="1" class="f-name" tabindex="4">
+                                                        <option selected><#PARAM name="StatusGroup"></option>
+                                                        <option>Undergraduate</option>
+														<option>Graduate</option>
+														<option>Distance Ed Grad</option>
+														<option>Law Graduate</option>
+                                                        <option>Faculty</option>
+														<option>Law Faculty</option>
+                                                        <option>Staff</option>
+														<option>Law Staff</option>
+												</select><br />
+                                        </label>
+
+                                        <label for="Department">
+                                                <span class="field">
+                                                        <span class="req">*</span>
+                                                        <span class="<#ERROR name="ERRORDepartment">"><b>Department / Major</b></span>
+                                                </span>
+                                                <select id="Department" name="Department" size="1" class="f-name" tabindex="4">
+                                                        <option selected><#PARAM name="Department"></option>
+                                                        <option>Administration</option>
+														<option>American Studies</option>
+														<option>Biology</option>
+														<option>Business</option>
+														<option>Chemical and Materials Engineering</option>
+														<option>Chemistry</option>
+														<option>Civil and Environmental Engineering</option>
+														<option>Communication</option>
+														<option>Computer Engineering Technology</option>
+
+														<option>Computer Science</option>
+														<option>Cooperative Education</option>
+														<option>Counselor Education</option>
+														<option>Criminal Justice Studies</option>
+														<option>Economics and Finance</option>
+														<option>Education</option>
+														<option>Educational Leadership</option>
+
+														<option>Electrical and Computer Engineering</option>
+														<option>Electro-Optics</option>
+														<option>Electronic Engineering Technology</option>
+														<option>Engineering</option>
+														<option>Engineering Management and Systems</option>
+														<option>Engineering Mechanics</option>
+														<option>Engineering Technology</option>
+
+														<option>English</option>
+														<option>Geology</option>
+														<option>Health and Sport Science</option>
+														<option>History</option>
+														<option>Industrial Engineering Technology</option>
+														<option>International Studies</option>
+
+														<option>Languages</option>
+														<option>Law</option>
+														<option>Learning Teaching Center</option>
+														<option>Management and Marketing</option>
+														<option>Manufacturing and Engineering Technology</option>
+														<option>Materials Engineering</option>
+														<option>Mathematics</option>
+														<option>MBA</option>
+
+														<option>Mechanical and Aerospace Engineering</option>
+														<option>Mechanical Engineering Technology</option>
+														<option>Military Science</option>
+														<option>MIS, Operations Management, and Decision Sciences</option>
+														<option>Music</option>
+														<option>Philosophy</option>
+														<option>Physical Therapy</option>
+														<option>Physician Assistant</option>
+														<option>Physics</option>
+														<option>Political Science</option>
+														<option>Pre-Law</option>
+														<option>Pre-Med</option>
+														<option>Psychology</option>
+														<option>Religious Studies</option>
+
+														<option>Roesch Library</option>
+														<option>Sociology, Anthropology, and Social Work</option>
+														<option>Teacher Education</option>
+														<option>Theatre</option>
+														<option>Undeclared Science</option>
+														<option>Undeclared Arts</option>
+														<option>Visual Arts</option>
+														<option>Women's Studies Program</option>
+														<option>Other - Unlisted</option>
+
+                                                </select><br />
+                                        </label>
+
+                                        <label for="AuthorizedUsers">
+                                                <span class="field">
+                                                        <span class="<#ERROR name="ERRORAuthorizedUsers">"><b>Authorized Users</b></span><br />
+                                                        <span class="note">List the full names of anyone you wish to be allowed to pick up your ILL items.<br />An ID will be REQUIRED to pick items up.</span>
+                                                </span>
+                                                <textarea id="AuthorizedUsers" name="AuthorizedUsers" rows="2" cols="40" class="f-name" tabindex="15"><#PARAM name="AuthorizedUsers"></textarea><br />
+                                        </label>
+
+
+
+                    <div class="f-submit-wrap" align="right">
+                                                <input type="submit" name="SubmitButton" value="Submit Information" class="f-submit" tabindex="60" />
+                                                <input type="reset" name="ResetButton" value="Clear Form" class="f-submit" tabindex="61" />
+                                                <input type="submit" name="SubmitButton" value="Cancel - Exit ILLiad System" class="f-submit" tabindex="62" />
+                                        </div>
+                                </fieldset>
+                </form>
+        <#INCLUDE filename="include_footer.html">
+    </div>
+  </div>
+</div>
+</body>
+</html>
